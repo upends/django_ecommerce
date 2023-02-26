@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Product
 from django.contrib.auth.decorators import login_required
 from .models import Cart, Product
+from decimal import Decimal
 
 
 # Create your views here.
@@ -34,7 +35,7 @@ def add_to_cart(request, product_id):
         # Add the product to the cart
         cart.items.add(product)
         subtotal = cart.subtotal
-        subtotal += product.price
+        subtotal += Decimal(product.price)
         cart.subtotal = subtotal
         cart.save()
         return redirect('home')

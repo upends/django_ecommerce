@@ -35,17 +35,21 @@
               <label class="form-check-label" for="address{{ address.id }}">
                 {{ address }}
               </label>
-            </div></td>   
+            </div></td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
     <button type="submit" class="btn btn-success">Continue to Payment</button>
-    <a href="{% url 'addNewAddress' %}" class="btn btn-primary">Add New Address</a>
+
   {% else %}
     <p>You dont have any address add an address</p>
+
   {% endif %}
 </form>
+<hr>
+<a href="{% url 'addNewAddress' %}" class="btn btn-primary">Add New Address</a>
+<hr>
 
 
 {% endblock %}
