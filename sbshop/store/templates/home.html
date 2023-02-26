@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Marvelous Emporium</title>
+	<!-- Include Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Marvelous Emporium</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/user/account">Account</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/cart">Cart</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/order/view_order/">Orders</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+    {% load static %}
+
+	<!-- Banner -->
+	<div class="jumbotron jumbotron-fluid" style="background-image: url('{% static 'images/banner.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
+		<div class="container">
+			<h1 class="display-4">Welcome to our Ecommerce Website</h1>
+			<p class="lead">Unleash Your Inner Hero with our Marvel Character Collection - Shop Now!</p>
+		</div>
+	</div>
+
+	<!-- Products Section -->
+	<div class="container p-5">
+		<div class="row">
+            {% for prod in products %}
+                <div class="col-sm-4">
+                    <div class="card">
+                        
+                        <img class="card-img-top" src="{% static 'images/'%}{{prod.sku}}.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{prod.name}}</h5>
+                            <p class="card-text">₹ {{prod.price}}</p>
+                            <form class="myForm"action="{% url 'add_to_cart' prod.id %}" method="post">
+                                {% csrf_token %}
+                                <button id="submit-btn" data-product-id="{{ prod.name }}" class="btn btn-success btn-lg add-to-cart-btn" data-toggle="modal" data-target="#exampleModalCenter" type="submit">Add to cart</button>
+                            </form>                           
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+		</div>
+	</div>
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start">
+	<div class="container p-4">
+		<div class="row">
+			<div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+				<h5 class="text-uppercase">Footer Content</h5>
+				<p>
+					Copyright © 2023 Marvel Characters, Inc. All rights reserved. This website is not affiliated with or endorsed by Marvel Characters, Inc. Any references to Marvel Characters, Inc. and its products are for informational purposes only. For any inquiries or support, please contact us at upendras9717@gmail.com
+				</p>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+				<h5 class="text-uppercase">Links</h5>
+				<ul class="list-unstyled mb-0">
+					<li>
+						<a href="#" class="text-dark">Link 1</a>
+					</li>
+					<li>
+						<a href="#" class="text-dark">Link 2</a>
+					</li>
+					<li>
+						<a href="#" class="text-dark">Link 3</a>
+					</li>
+					<li>
+						<a href="#" class="text-dark">Link 4</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+				<h5 class="text-uppercase">Contact</h5>
+				<ul class="list-unstyled mb-0">
+					<li>
+						<a href="#" class="text-dark">Address: 123 Street, City, Country</a>
+					</li>
+					<li>
+						<a href="#" class="text-dark">Phone: +918182830219</a>
+					</li>
+					<li>
+						<a href="#" class="text-dark">Email: upendras9717@gmail.com</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+		<p>&copy; 2023 Marvelous Emporium</p>
+	</div>
+</footer>
+
+<!-- Include Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', event => {
+            const productId = button.dataset.productId;
+            // Open pop-up with product added to cart message
+            alert(`${productId} added to cart!`);
+        });
+    });
+</script>
+
+</body>
+</html>
+
+	

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Order Details</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in order_items %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Total</td>
+            <td>{{ order.total_price }}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <h2>Shipping Information</h2>
+      <p><strong>Name: </strong>{{ order.address.full_name }}</p>
+      <p><strong>Email: </strong>{{ order.user.email }}</p>
+      <p><strong>Phone Number: </strong>{{ order.address.contact_no }}</p>
+      <p><strong>Address: </strong>{{ order.address.address_line }}</p>
+      <p><strong>City: </strong>{{ order.address.city }}</p>
+      <p><strong>State: </strong>{{ order.address.state }}</p>
+      <p><strong>Zip Code: </strong>{{ order.address.zip_code }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
