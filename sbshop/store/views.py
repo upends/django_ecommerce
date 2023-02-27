@@ -16,6 +16,11 @@ def home(request):
     }
     return render(request, 'home.html', context=context)
 
+def product_detail(request, product_id):
+    product = Product.objects.get(id=product_id)
+    context = {'product': product}
+    return render(request, 'product_detail.html', context)
+
 
 def add_to_cart(request, product_id):
     if request.user.is_authenticated:

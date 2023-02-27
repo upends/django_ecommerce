@@ -45,8 +45,7 @@
             {% for prod in products %}
                 <div class="col-sm-4">
                     <div class="card">
-                        
-                        <img class="card-img-top" src="{% static 'images/'%}{{prod.sku}}.jpg" alt="Card image cap">
+                        <a href="{% url 'product_detail' prod.id %}"><img class="card-img-top" src="{% static 'images/'%}{{prod.sku}}.jpg" alt="Card image cap"></a>
                         <div class="card-body">
                             <h5 class="card-title">{{prod.name}}</h5>
                             <p class="card-text">₹ {{prod.price}}</p>
@@ -75,20 +74,17 @@
 			<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 				<h5 class="text-uppercase">Links</h5>
 				<ul class="list-unstyled mb-0">
-					<li>
-						<a href="#" class="text-dark">Link 1</a>
-					</li>
-					<li>
-						<a href="#" class="text-dark">Link 2</a>
-					</li>
-					<li>
-						<a href="#" class="text-dark">Link 3</a>
-					</li>
-					<li>
-						<a href="#" class="text-dark">Link 4</a>
-					</li>
+				  <li>
+					<a href="https://www.youtube.com/watch?v=SLD9xzJ4oeU" class="text-dark">Thor vs Hulk</a>
+				  </li>
+				  <li>
+					<a href="https://www.youtube.com/watch?v=6yz398pPcEM" class="text-dark">Spider-Man VS Doc Ock</a>
+				  </li>
+				  <li>
+					<a href="https://www.youtube.com/watch?v=PjJofEuSA78" class="text-dark">Iron Man vs Terrorists</a>
+				  </li>
 				</ul>
-			</div>
+			  </div>
 			<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 				<h5 class="text-uppercase">Contact</h5>
 				<ul class="list-unstyled mb-0">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ecommerce Website</title>
+    <title>Marvelous Emporium</title>
     <!-- Include Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -11,7 +11,7 @@
   <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Ecommerce Website</a>
+      <a class="navbar-brand" href="#">Marvelous Emporium</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -48,26 +48,20 @@
           <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
             <h5 class="text-uppercase">Footer Content</h5>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Copyright © 2023 Marvel Characters, Inc. All rights reserved. This website is not affiliated with or endorsed by Marvel Characters, Inc. Any references to Marvel Characters, Inc. and its products are for informational purposes only. For any inquiries or support, please contact us at upendras9717@gmail.com
             </p>
           </div>
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
             <h5 class="text-uppercase">Links</h5>
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="#" class="text-dark">Link 1</a>
+                <a href="https://www.youtube.com/watch?v=SLD9xzJ4oeU" class="text-dark">Thor vs Hulk</a>
               </li>
               <li>
-                <a href="#" class="text-dark">Link 2</a>
+                <a href="https://www.youtube.com/watch?v=6yz398pPcEM" class="text-dark">Spider-Man VS Doc Ock</a>
               </li>
               <li>
-                <a href="#" class="text-dark">Link 3</a>
-              </li>
-              <li>
-                <a href="#" class="text-dark">Link 4</a>
+                <a href="https://www.youtube.com/watch?v=PjJofEuSA78" class="text-dark">Iron Man vs Terrorists</a>
               </li>
             </ul>
           </div>
@@ -76,14 +70,14 @@
             <ul class="list-unstyled mb-0">
               <li>
                 <a href="#" class="text-dark"
-                  >Address: 123 Street, City, Country</a
+                  >Address: 123 Marvel World, Underground, Earth</a
                 >
               </li>
               <li>
                 <a href="#" class="text-dark">Phone: +123456789</a>
               </li>
               <li>
-                <a href="#" class="text-dark">Email: contact@ecommerce.com</a>
+                <a href="#" class="text-dark">Email: upendras9717@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -98,5 +92,16 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+      const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+  
+      addToCartButtons.forEach(button => {
+          button.addEventListener('click', event => {
+              const productId = button.dataset.productId;
+              // Open pop-up with product added to cart message
+              alert(`${productId} added to cart!`);
+          });
+      });
+  </script>
   </body>
 </html>
